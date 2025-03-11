@@ -1,0 +1,60 @@
+@model MobileViewModel
+
+@{
+    ViewData["Title"] = "Mobile Details";
+}
+
+<h1 class="text-center mt-4 text-primary">Mobile Details</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h4 class="card-title text-center text-secondary">Mobile Information</h4>
+                <hr />
+
+                <div class="text-center mb-4">
+                    <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded shadow-lg" style="max-height: 300px;" />
+                </div>
+
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th class="w-25">Name</th>
+                            <td>@Model.Name</td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td>@Model.Price.ToString("C")</td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>@Model.Description</td>
+                        </tr>
+                        <tr>
+                            <th>Category</th>
+                            <td>@Model.CategoryName</td>
+                        </tr>
+                        <tr>
+                            <th>Created At</th>
+                            <td>@Model.CreateAt.ToString("yyyy-MM-dd HH:mm")</td>
+                        </tr>
+                        <tr>
+                            <th>Updated At</th>
+                            <td>@Model.UpdatedAt.ToString("yyyy-MM-dd HH:mm")</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Back to List
+                    </a>
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
