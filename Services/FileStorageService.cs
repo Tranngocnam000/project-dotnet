@@ -33,5 +33,13 @@ namespace Phone.Services
                 await Task.Run(() => File.Delete(filePath));
             }
         }
+        public async Task DeleteFile3Async(string fileName)
+        {
+            var filePath = Path.Combine(_userContentFolder, fileName);
+            if (File.Exists(filePath))
+            {
+                await Task.Run(() => File.Delete(filePath));
+            }
+        }
     }
 }
